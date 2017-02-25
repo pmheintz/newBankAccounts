@@ -142,6 +142,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="bankAccount.cpp" />
+    <ClCompile Include="checkingAccount.cpp" />
+    <ClCompile Include="highInterestSavings.cpp" />
+    <ClCompile Include="info.cpp" />
+    <ClCompile Include="mainMethod.cpp" />
+    <ClCompile Include="noServiceChargeChecking.cpp" />
+    <ClCompile Include="savingsAccount.cpp" />
+    <ClCompile Include="serviceChargeChecking.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="bankAccount.h" />
+    <ClInclude Include="checkingAccount.h" />
+    <ClInclude Include="highInterestSavings.h" />
+    <ClInclude Include="info.h" />
+    <ClInclude Include="noServiceChargeChecking.h" />
+    <ClInclude Include="savingsAccount.h" />
+    <ClInclude Include="serviceChargeChecking.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
