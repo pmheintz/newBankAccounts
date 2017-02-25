@@ -29,6 +29,10 @@ public:
 	void setServiceChargeChecks(double amount);
 	int getNumberOfChecksWritten();
 	void setNumberOfChecksWritten(int num);
+	string writeCheck(double amount);
+	void postServiceCharge(char type);
+	virtual string createMonthlyStatement();
+	virtual string print();
 	~serviceChargeChecking();
 };
 

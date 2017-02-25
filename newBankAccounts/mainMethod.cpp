@@ -8,6 +8,7 @@
 #include "savingsAccount.h"
 #include "highInterestSavings.h"
 #include "noServiceChargeChecking.h"
+#include "serviceChargeChecking.h"
 //#include "bankAccountUI.h"
 //using namespace std;
 
@@ -30,8 +31,16 @@ void main()
 	cout << mark.createMonthlyStatement() << endl;
 	cout << mark.postInterest() << endl;
 
-	noServiceChargeChecking tim("Tim Heintz", "9", 10000.00);
+	serviceChargeChecking tim("Tim Heintz", "9", 10000.00);
 	cout << tim.print() << endl;
+	cout << tim.writeCheck(5.00) << endl;
+	cout << tim.writeCheck(5.00) << endl;
+	cout << tim.writeCheck(5.00) << endl;
+	cout << tim.writeCheck(5.00) << endl;
+	cout << tim.writeCheck(5.00) << endl;
+	cout << tim.writeCheck(5.00) << endl;
+	cout << tim.createMonthlyStatement() << endl;
+	cout << tim.writeCheck(5.00) << endl;
 	cout << tim.createMonthlyStatement() << endl;
 
 	//bankAccountUI theUI;
