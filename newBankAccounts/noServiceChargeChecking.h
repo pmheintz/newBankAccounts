@@ -29,7 +29,7 @@ public:
 	string withdraw(double amount);
 	string postInterest();
 	virtual string createMonthlyStatement();
-	virtual string print();
+	virtual string print() const;
 	~noServiceChargeChecking();
 };
 

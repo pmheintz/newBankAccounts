@@ -28,7 +28,7 @@ public:
 	bool verifyMinimumBalance(double amount);
 	virtual string withdraw(double amount);
 	virtual string createMonthlyStatement();
-	virtual string print();
+	virtual string print() const;
 };
 
 #endif

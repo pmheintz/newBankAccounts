@@ -14,6 +14,7 @@ class checkingAccount :
 public:
 	checkingAccount(string n, string acctNumber, double bal);
 	virtual string writeCheck(double amount) = 0;
+	string displayMenu();
 };
 
 #endif

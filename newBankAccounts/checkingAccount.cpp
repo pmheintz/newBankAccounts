@@ -8,3 +8,11 @@
 checkingAccount::checkingAccount(string n, string acctNumber, double bal) : bankAccount(n, acctNumber, bal)
 {
 }
+
+string checkingAccount::displayMenu()
+{
+	string menu;
+	menu = bankAccount::displayMenu();
+	menu += "5) Write check\n";
+	return menu;
+}

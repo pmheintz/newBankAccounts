@@ -33,7 +33,12 @@ string savingsAccount::withdraw(double amount)
 	if ((balance - amount) < 0)
 	{
 		result = "Insufficient funds in acount " + accountNumber;
-		result += "\nCurrent account balance is " + to_string(balance) + "\n";
+		result += "\nCurrent account balance is $";
+		ss.str(string());
+		ss.clear();
+		ss << std::fixed << std::setprecision(2) << balance;
+		result += ss.str();
+		result += "\n";
 	}
 	else
 	{

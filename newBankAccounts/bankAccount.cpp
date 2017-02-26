@@ -45,7 +45,7 @@ string bankAccount::withdraw(double amount)
 {
 	stringstream ss;
 	string result;
-	ss << std::fixed << setw(10) << std::setprecision(2) << amount;
+	ss << std::fixed << std::setprecision(2) << amount;
 
 	balance -= amount;
 
@@ -54,7 +54,10 @@ string bankAccount::withdraw(double amount)
 	result += " from account ";
 	result += accountNumber;
 	result += "\nYour new balance is $";
-	result += to_string(balance);
+	ss.str(string());
+	ss.clear();
+	ss << std::fixed << std::setprecision(2) << balance;
+	result += ss.str();
 	result += "\n";
 
 	return result;
@@ -64,7 +67,7 @@ string bankAccount::deposit(double amount)
 {
 	stringstream ss;
 	string result;
-	ss << std::fixed << setw(10) << std::setprecision(2) << amount;
+	ss << std::fixed << std::setprecision(2) << amount;
 
 	balance += amount;
 
@@ -73,7 +76,10 @@ string bankAccount::deposit(double amount)
 	result += " into account ";
 	result += accountNumber;
 	result += "\nYour new balance is $";
-	result += to_string(balance);
+	ss.str(string());
+	ss.clear();
+	ss << std::fixed << std::setprecision(2) << balance;
+	result += ss.str();
 	result += "\n";
 
 	return result;
@@ -83,15 +89,25 @@ string bankAccount::print() const
 {
 	stringstream ss;
 	string result;
-	ss << std::fixed << setw(10) << std::setprecision(2);
+	ss << std::fixed << std::setprecision(2) << balance;
 
-	result = "Account holder's name: ";
+	result = "Account for ";
 	result += name;
-	result += "\nAccount number: ";
+	result += "\nAccount number:  ";
 	result += accountNumber;
 	result += "\nAccount balance: $";
-	result += to_string(balance);
+	result += ss.str();
 	result += "\n";
 
 	return result;
+}
+
+string bankAccount::displayMenu()
+{
+	string menu;
+	menu = "1) Print account information\n";
+	menu += "2) Create monthly statement\n";
+	menu += "3) Deposit money\n";
+	menu += "4) Withdraw money\n";
+	return menu;
 }

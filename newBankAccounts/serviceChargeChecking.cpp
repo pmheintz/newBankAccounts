@@ -109,7 +109,7 @@ string serviceChargeChecking::createMonthlyStatement()
 	return result;
 }
 
-string serviceChargeChecking::print()
+string serviceChargeChecking::print() const
 {
 	ostringstream ss;
 	string result;

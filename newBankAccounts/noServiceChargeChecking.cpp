@@ -134,7 +134,7 @@ string noServiceChargeChecking::createMonthlyStatement()
 	return print();
 }
 
-string noServiceChargeChecking::print()
+string noServiceChargeChecking::print() const
 {
 	ostringstream ss;
 	string result;

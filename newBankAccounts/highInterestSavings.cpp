@@ -89,7 +89,7 @@ string highInterestSavings::createMonthlyStatement()
 	return print();
 }
 
-string highInterestSavings::print()
+string highInterestSavings::print() const
 {
 	ostringstream ss;
 	string result;

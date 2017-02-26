@@ -31,6 +31,7 @@ public:
 	string deposit(double amount);
 	virtual string createMonthlyStatement() = 0;
 	virtual string print() const;
+	string displayMenu();
 };
 
 #endif // !BANKACCOUNT_H

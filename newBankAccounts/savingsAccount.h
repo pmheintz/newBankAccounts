@@ -24,7 +24,7 @@ public:
 	string withdraw(double amount);
 	string postInterest();
 	virtual string createMonthlyStatement();
-	string savingsAccount::print() const;
+	string print() const;
 };
 
 #endif

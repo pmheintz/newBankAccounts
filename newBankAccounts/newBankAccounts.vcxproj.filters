@@ -39,6 +39,9 @@
     <ClCompile Include="serviceChargeChecking.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="bankAccountUI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="info.h">
@@ -60,6 +63,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="serviceChargeChecking.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="bankAccountUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

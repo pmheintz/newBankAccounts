@@ -32,7 +32,7 @@ public:
 	string writeCheck(double amount);
 	void postServiceCharge(char type);
 	virtual string createMonthlyStatement();
-	virtual string print();
+	virtual string print() const;
 	~serviceChargeChecking();
 };
 
