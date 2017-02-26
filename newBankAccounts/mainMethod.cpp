@@ -29,6 +29,7 @@ void main()
 	cout << tim.displayMenu() << endl;*/
 
 	bankAccountUI theUI;
+	theUI.mainMethod();
 	//theUI.displayAcctTypeMenu();
 
 	cin.ignore();

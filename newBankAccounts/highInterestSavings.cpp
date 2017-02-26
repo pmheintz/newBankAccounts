@@ -95,6 +95,7 @@ string highInterestSavings::print() const
 	string result;
 
 	result = "Account for " + name + "\n";
+	result += "Account type:     High Interest Savings\n";
 	result += "Account number:   " + accountNumber + "\n";
 	ss << std::fixed << std::setprecision(2) << interestRate;
 	result += "Interest rate:    %" + ss.str() + "\n";

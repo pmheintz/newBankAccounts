@@ -21,9 +21,18 @@ using namespace std;
 
 class bankAccountUI
 {
+private:
+	vector<bankAccount*> accounts;
+
 public:
 	bankAccountUI();
 	~bankAccountUI();
+	void mainMethod();
+	int promptForAccount();
+	void displayAccount(int account);
+	int getInt();
+	void accountMenu(int accountIndex);
+	double getDouble();
 };
 
 #endif

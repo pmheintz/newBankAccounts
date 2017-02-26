@@ -105,7 +105,8 @@ string bankAccount::print() const
 string bankAccount::displayMenu()
 {
 	string menu;
-	menu = "1) Print account information\n";
+	menu = "0) Exit\n";
+	menu += "1) Print account information\n";
 	menu += "2) Create monthly statement\n";
 	menu += "3) Deposit money\n";
 	menu += "4) Withdraw money\n";

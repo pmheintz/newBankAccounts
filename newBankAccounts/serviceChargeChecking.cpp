@@ -115,6 +115,7 @@ string serviceChargeChecking::print() const
 	string result;
 
 	result = "Account for " + name + "\n";
+	result += "Account type:                     Service Charge Checking\n";
 	result += "Account number:                   " + accountNumber + "\n";
 	result += "Maximum number of checks:         " + to_string(MAXIMUM_NUM_OF_CHECKS) + "\n";
 	result += "Checks written this month:        " + to_string(numberOfChecksWritten) + "\n";

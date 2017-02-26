@@ -140,6 +140,7 @@ string noServiceChargeChecking::print() const
 	string result;
 
 	result = "Account for " + name + "\n";
+	result += "Account type:     No Service Charge Checking\n";
 	result += "Account number:   " + accountNumber + "\n";
 	ss << std::fixed << std::setprecision(2) << interestRate;
 	result += "Interest rate:    %" + ss.str() + "\n";

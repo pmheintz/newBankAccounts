@@ -7,7 +7,14 @@
 
 bankAccountUI::bankAccountUI()
 {
-	vector<bankAccount*> accounts;
+}
+
+bankAccountUI::~bankAccountUI()
+{
+}
+
+void bankAccountUI::mainMethod()
+{
 	savingsAccount pauls("Paul Heintz", "8675309", 500.37);
 	highInterestSavings marks("Mark Heintz", "5800456", 7057.23);
 	noServiceChargeChecking debis("Debi Heintz", "9237451", 100.97);
@@ -18,10 +25,157 @@ bankAccountUI::bankAccountUI()
 	accounts.push_back(&debis);
 	accounts.push_back(&tims);
 
-	for (int i = 0; i < accounts.size(); i++)
-		cout << accounts[i]->print() << endl;
+	cout << "Welcome to the bank accounts program!" << endl;
+	cout << "Press any key to display all accounts in vector" << endl;
+	cin.ignore();
+	displayAccount(-1);
+	accountMenu(promptForAccount());
+
+
+	//for (int i = 0; i < accounts.size(); i++)
+	//{
+	//	cout << "Account " << i << endl;
+	//	cout << accounts[i]->print() << endl;
+	//	/*if (dynamic_cast<checkingAccount*>(accounts[i]))
+	//	{
+	//	checkingAccount *temp;
+	//	temp = static_cast<checkingAccount*>(accounts[i]);
+	//	cout << temp->displayMenu() << endl;
+	//	}
+	//	else
+	//	{
+	//	cout << accounts[i]->displayMenu() << endl;
+	//	}*/
+	//}
 }
 
-bankAccountUI::~bankAccountUI()
+int bankAccountUI::promptForAccount()
 {
+	signed int selection;
+	int vectorSize = (accounts.size() - 1);
+	cout << "Enter the account number you'd like to work with: ";
+	selection = getInt();
+	while (selection > vectorSize)
+	{
+		cout << "No account in that index. Please try again: ";
+		selection = getInt();
+	}  
+
+	displayAccount(selection);
+	return selection;
+}
+
+void bankAccountUI::displayAccount(int account)
+{
+	if (account == -1)
+	{
+		for (int i = 0; i < accounts.size(); i++)
+		{
+			cout << "Account " << i << endl;
+			cout << accounts[i]->print() << endl;
+		}
+	}
+	else
+	{
+		cout << "Account " << account << endl;
+		cout << accounts[account]->print() << endl;
+	}
+}
+
+int bankAccountUI::getInt()
+{
+	int selection;
+	do
+	{
+		cin >> selection;
+		if (!(cin))
+		{
+			cin.clear();
+			cin.ignore();
+			selection = -1;
+			cout << "Invalid entry. Please try again: ";
+		}
+	} while (selection < 0);
+	return selection;
+}
+
+void bankAccountUI::accountMenu(int accountIndex)
+{
+	int selection;
+
+	if (dynamic_cast<checkingAccount*>(accounts[accountIndex]))
+	{
+		checkingAccount *temp;
+		temp = static_cast<checkingAccount*>(accounts[accountIndex]);
+		cout << temp->displayMenu() << endl;
+	}
+	else
+	{
+		cout << accounts[accountIndex]->displayMenu() << endl;
+	}
+
+	double money;
+	do
+	{
+		cout << "Enter your selection: ";
+		selection = getInt();
+		switch (selection)
+		{
+		case 0:
+			break;
+		case 1:
+			cout << accounts[accountIndex]->print() << endl;
+			cout << accounts[accountIndex]->displayMenu() << endl;
+			break;
+		case 2:
+			cout << accounts[accountIndex]->createMonthlyStatement() << endl;
+			cout << accounts[accountIndex]->displayMenu() << endl;
+			break;
+		case 3:
+			cout << endl << "How much money will you deposit: $";
+			money = getDouble();
+			cout << accounts[accountIndex]->deposit(money) << endl;
+			cout << accounts[accountIndex]->displayMenu() << endl;
+			break;
+		case 4:
+			cout << endl << "How much money will you withdraw: $";
+			money = getDouble();
+			cout << accounts[accountIndex]->withdraw(money) << endl;
+			cout << accounts[accountIndex]->displayMenu() << endl;
+			break;
+		case 5:
+			if (dynamic_cast<checkingAccount*>(accounts[accountIndex]))
+			{
+				checkingAccount *temp;
+				temp = static_cast<checkingAccount*>(accounts[accountIndex]);
+				cout << endl << "Enter check amount: $";
+				money = getDouble();
+				cout << temp->writeCheck(money) << endl;
+				cout << temp->displayMenu() << endl;
+			}
+			else
+			{
+				cout << "Invalid selection!\n";
+				cout << accounts[accountIndex]->displayMenu() << endl;
+			}
+			break;
+		default:
+			cout << "Invalid selection!\n";
+			cout << accounts[accountIndex]->displayMenu() << endl;
+			break;
+		}
+	} while (selection >= 1 && selection <= 5);
+}
+
+double bankAccountUI::getDouble()
+{
+	double myDouble;
+
+	while (!(cin >> myDouble))
+	{
+		cin.clear();
+		cin.ignore();
+		cout << "*ERROR* Invalid value, try again: ";
+	}
+	return myDouble;
 }
