@@ -42,7 +42,7 @@ bool noServiceChargeChecking::verifyMinimumumBalance(double amount)
 		result = false;
 	}
 
-	return false;
+	return result;
 }
 
 string noServiceChargeChecking::writeCheck(double amount)
