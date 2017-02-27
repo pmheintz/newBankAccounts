@@ -33,7 +33,10 @@ void bankAccountUI::mainMethod()
 	{
 		displayAccount(-2);
 		selection = promptForAccount();
-		accountMenu(selection);
+		if (selection != -1)
+		{
+			accountMenu(selection);
+		}
 	} while (selection != -1);
 
 
@@ -56,10 +59,11 @@ void bankAccountUI::mainMethod()
 
 int bankAccountUI::promptForAccount()
 {
-	signed int selection;
+	int selection;
 	int vectorSize = (accounts.size() - 1);
 	cout << "Enter the account number you'd like to work with.\nEnter -1 to quit: ";
 	selection = getInt();
+	if (selection == -1) { return selection; }
 	while (selection > vectorSize)
 	{
 		cout << "No account in that index. Please try again: ";
@@ -74,7 +78,7 @@ void bankAccountUI::displayAccount(int account)
 {
 	if (account == -2)
 	{
-		for (int i = 0; i < accounts.size(); i++)
+		for (unsigned int i = 0; i < accounts.size(); i++)
 		{
 			cout << "Account #" << i << endl;
 			cout << accounts[i]->print() << endl;
@@ -97,10 +101,10 @@ int bankAccountUI::getInt()
 		{
 			cin.clear();
 			cin.ignore();
-			selection = -1;
+			selection = -2;
 			cout << "Invalid entry. Please try again: ";
 		}
-	} while (selection < 0);
+	} while (selection < -1);
 	return selection;
 }
 
