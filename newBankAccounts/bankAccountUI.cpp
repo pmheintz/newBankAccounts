@@ -155,6 +155,7 @@ void bankAccountUI::accountMenu(int accountIndex)
 			}
 			else
 			{
+				cout << accounts[accountIndex]->createMonthlyStatement() << endl;
 				cout << accounts[accountIndex]->displayMenu() << endl;
 			}
 			break;
@@ -170,6 +171,7 @@ void bankAccountUI::accountMenu(int accountIndex)
 			}
 			else
 			{
+				cout << accounts[accountIndex]->deposit(money) << endl;
 				cout << accounts[accountIndex]->displayMenu() << endl;
 			}
 			break;
@@ -185,6 +187,7 @@ void bankAccountUI::accountMenu(int accountIndex)
 			}
 			else
 			{
+				cout << accounts[accountIndex]->withdraw(money) << endl;
 				cout << accounts[accountIndex]->displayMenu() << endl;
 			}
 			break;
